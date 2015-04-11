@@ -72,18 +72,32 @@ namespace Inition.Utilidades.Comunes
             this._areasParcialesColision = new List<AreaParcialColision>();
 
             int ancho = this.Area.Width / 3;
+            int anchoSobrante = this.Area.Width % 3;
+            int anchoAcumulado = 0;
+
             int alto = this.Area.Height / 3;
+            int altoSobrante = this.Area.Height % 3;
+            int altoAcumulado = 0;
 
             for (int ejeY = 0; ejeY < 3; ejeY++)
             {
+                int altoArea = alto + (altoSobrante * (ejeY % 2));
+
+                anchoAcumulado = 0;
                 for (int ejeX = 0; ejeX < 3; ejeX++)
                 {
                     if (ejeX != 1 || ejeY != 1)
                     {
-                        var areaParcial = new Rectangle(this.Area.Left + (ejeX * ancho), this.Area.Top + (ejeY * alto), ancho, alto);
+                        int anchoArea = ancho + (anchoSobrante * (ejeX % 2));
+
+                        var areaParcial = new Rectangle(this.Area.Left + anchoAcumulado, this.Area.Top + altoAcumulado, anchoArea, altoArea);
                         _areasParcialesColision.Add(new AreaParcialColision(areaParcial, _areasParcialesColision.Count));
+
+                        anchoAcumulado += anchoArea;
                     }
                 }
+
+                altoAcumulado += altoArea;
             }
         }
 

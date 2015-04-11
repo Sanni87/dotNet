@@ -51,16 +51,16 @@ namespace Inition
             IColisionable rectangulo;
 
             //Prueba para meter muchos cuadraditos colisionables
-            for (int j = 0; j < 10; j++)
-            {
-                for (int i = 0; i < 25; i++)
-                {
-                    rectangulo = RectanguloFactory.CrearRectanguloAutomatico(graphics, 20, 20, Color.BurlyWood, 1 + i * 21, j * 21);
+            //for (int j = 0; j < 10; j++)
+            //{
+            //    for (int i = 0; i < 25; i++)
+            //    {
+            //        rectangulo = RectanguloFactory.CrearRectanguloAutomatico(graphics, 20, 20, Color.BurlyWood, 1 + i * 21, j * 21);
 
-                    formas.Add(rectangulo);
-                    colisionables.Add(rectangulo);
-                }
-            }
+            //        formas.Add(rectangulo);
+            //        colisionables.Add(rectangulo);
+            //    }
+            //}
 
             //rectangulo = RectanguloFactory.CrearRectanguloAutomatico(graphics, 20, 20, Color.Brown, 390, 290);
 
@@ -91,12 +91,12 @@ namespace Inition
             formas.Add(rectangulo);
             colisionables.Add(rectangulo);
 
-            rectangulo = RectanguloFactory.CrearPared(graphics, 798, 1, Color.Black, 2, -1);
+            rectangulo = RectanguloFactory.CrearPared(graphics, 798, 1, Color.Black, -1, -1);
 
             formas.Add(rectangulo);
             colisionables.Add(rectangulo);
 
-            rectangulo = RectanguloFactory.CrearPared(graphics, 798, 1, Color.Black, 2, 600);
+            rectangulo = RectanguloFactory.CrearPared(graphics, 798, 1, Color.Black, 0, 600);
 
             formas.Add(rectangulo);
             colisionables.Add(rectangulo);
